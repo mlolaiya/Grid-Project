@@ -141,9 +141,10 @@ p {
   }
 } */
 
-/* =======Card Styles======= */
+/* =======Cards Styles======= */
 .title {
   text-align: center;
+  color: var(--primaryColor);
 }
 .cards {
   padding: 4rem 0;
@@ -169,6 +170,10 @@ p {
 }
 .card-footer span {
   color: var(--primaryColor);
+}
+
+.card-footer i:hover {
+  color: var(--mainWhite);
 }
 
 /* @media screen and (min-width: 768px) {
@@ -197,9 +202,9 @@ p {
   grid-column-gap: 2rem;
   /* grid-template-columns: repeat(auto-fit, minmax(368px, 1fr)); */
   /* three column layout */
-  /* grid-template-columns: repeat(auto-fill, minmax(368px, 1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(368px, 1fr));
   /* four column layout */
-  grid-template-columns: repeat(auto-fill, minmax(268.5px, 1fr));
+  /*  grid-template-columns: repeat(auto-fill, minmax(268.5px, 1fr)); */
 }
 
 /* =======Tiles Styles======= */
@@ -313,6 +318,10 @@ p {
   color: var(--mainWhite);
   font-size: 1.2rem;
 }
+
+.sidebar i:hover {
+  color: #085ea9;
+}
 .footer {
   background: var(--mainBlack);
   color: var(--mainWhite);
@@ -320,6 +329,7 @@ p {
   text-transform: capitalize;
   padding: 0.5rem 0;
 }
+
 .footer p {
   font-size: 1.2rem;
 }
@@ -334,5 +344,44 @@ p {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .main {
+    grid-template-columns: [start] 200px [col-1-end] 1fr [col-2-end] 50px [end];
+    grid-template-rows: [start] auto [row-1-end] 1fr [row-2-end] auto [end];
+  }
+  .header {
+    grid-column: start/end;
+    grid-row: start/row-1-end;
+  }
+  .navbar {
+    grid-column: start/col-1-end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .content {
+    grid-column: col-1-end/col-2-end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .sidebar {
+    grid-column: col-2-end/end;
+    grid-row: row-1-end/row-2-end;
+  }
+  .footer {
+    grid-column: start/end;
+    grid-template-rows: row-2-end/end;
+  }
+  .navbar ul {
+    grid-template-columns: 1fr;
+    /*optional*/
+    min-height: 100%;
+    align-items: center;
+  }
+  .sidebar {
+    grid-template-columns: 1fr;
+    align-items: center;
+    /* optional */
+    background: var(--darkGrey);
   }
 }
